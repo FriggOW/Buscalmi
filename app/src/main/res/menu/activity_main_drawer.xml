@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_beauty"
+            android:icon="@drawable/icon_beauty"
+            android:title="Belleza" />
+
+        <item
+            android:id="@+id/nav_comtuters"
+            android:icon="@drawable/icon_computer"
+            android:title="Informática" />
+
+        <item
+            android:id="@+id/nav_electronics"
+            android:icon="@drawable/icon_electronic"
+            android:title="Electrónica" />
+
+        <item
+            android:id="@+id/nav_fashion"
+            android:icon="@drawable/icon_fashion"
+            android:title="Moda" />
+
+        <item
+            android:id="@+id/nav_games"
+            android:icon="@drawable/icon_game"
+            android:title="Juegos" />
+
+
+        <item
+            android:id="@+id/nav_jewelry"
+            android:icon="@drawable/icon_jewelry"
+            android:title="Joyería" />
+
+        <item
+            android:id="@+id/nav_music"
+            android:icon="@drawable/icon_music"
+            android:title="Musica" />
+
+        <item
+            android:id="@+id/nav_sports"
+            android:icon="@drawable/icon_sports"
+            android:title="Deportes" />
+
+    </group>
+
+    <item android:title="Perfil">
+        <menu>
+            <item
+                android:id="@+id/nav_profile"
+                android:icon="@drawable/icon_profile"
+                android:title="Mi Perfil" />
+        </menu>
+    </item>
+
+</menu>
