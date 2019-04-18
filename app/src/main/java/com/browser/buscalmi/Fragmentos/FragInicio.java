@@ -23,10 +23,11 @@ public class FragInicio extends Fragment{
 
     private  RecyclerView listTopVentas;
     private RecyclerView listTopPrecios;
-  
+
+    private static ArrayList<Producto> productos = new ArrayList<Producto>();
+
     private static ArrayList<Producto> productosTopVentas = new ArrayList<Producto>();
     private static ArrayList<Producto> productosTopPrecio = new ArrayList<Producto>();
-
 
     public FragInicio() {
         // Required empty public constructor
@@ -41,9 +42,17 @@ public class FragInicio extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_inicio, container, false);
+
+        productos.add(new Producto("Nintendo Switch", 300));
+        productos.add(new Producto("Pokemon Sword", 60));
+        productos.add(new Producto("Pokemon Shield", 60));
+        productos.add(new Producto("Tarjeta de Google", 5));
+        productos.add(new Producto("Overwatch", 20));
+        productos.add(new Producto("The Witcher", 30));
+
         listTopVentas = view.findViewById(R.id.TopVentas);
 
-        listTopVentas.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        listTopVentas.setLayoutManager(new GridLayoutManager(getContext(), 2));
         productosTopVentas.add(new Producto("Nintendo Switch", 300));
         productosTopVentas.add(new Producto("Pokemon Sword", 60));
         productosTopVentas.add(new Producto("Pokemon Shield", 60));
@@ -82,20 +91,25 @@ public class FragInicio extends Fragment{
         if (newText != "") {
 
             productosTopVentas.clear();
+            productosTopPrecio.clear();
+
             for (int i = 0; i < productos.size();i++){
                 if (productos.get(i).getNombre().toLowerCase().contains(newText.toLowerCase())){
                     productosTopVentas.add(productos.get(i));
+                    productosTopPrecio.add(productos.get(i));
                 }
             }
 
         } else {
-
             productosTopVentas.addAll(productos);
+            productosTopPrecio.addAll(productos);
         }
 
-        RecyclerAdapter c=new RecyclerAdapter(productosTopVentas, getContext());
-        listTopVentas.setAdapter(c);
-    }
+        RecyclerAdapter b=new RecyclerAdapter(productosTopVentas, getContext());
+        listTopVentas.setAdapter(b);
 
+        RecyclerAdapter c=new RecyclerAdapter(productosTopPrecio, getContext());
+        listTopPrecios.setAdapter(c);
+    }
 }
 
