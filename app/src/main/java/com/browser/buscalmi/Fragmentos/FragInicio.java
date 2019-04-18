@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -22,18 +23,7 @@ public class FragInicio extends Fragment{
 
     private  RecyclerView listTopVentas;
     private RecyclerView listTopPrecios;
-
-    //LISTA DE PRODUCTOS
-    public static final Producto P1 = new Producto("Test 1", 54);
-    public static final Producto P2 = new Producto("Test 2", 100);
-    public static final Producto P3 = new Producto("Test 3", 20);
-    public static final Producto P4 = new Producto("Test 4", 5);
-    public static final Producto P5 = new Producto("Test 5", 200);
-    public static final Producto P6 = new Producto("Test 6", 20);
-    public static final Producto P7 = new Producto("Test 7", 40);
-    public static final Producto P8 = new Producto("Test 8", 10);
-
-    public static ArrayList<Producto> productos = new ArrayList<Producto>();
+  
     private static ArrayList<Producto> productosTopVentas = new ArrayList<Producto>();
     private static ArrayList<Producto> productosTopPrecio = new ArrayList<Producto>();
 
@@ -49,31 +39,28 @@ public class FragInicio extends Fragment{
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_inicio, container, false);
-
-        productos.add(P1);
-        productos.add(P2);
-        productos.add(P3);
-        productos.add(P4);
-        productos.add(P5);
-        productos.add(P6);
-        productos.add(P7);
-        productos.add(P8);
-
         listTopVentas = view.findViewById(R.id.TopVentas);
 
-        productosTopVentas.addAll(productos);
-
         listTopVentas.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        productosTopVentas.add(new Producto("Nintendo Switch", 300));
+        productosTopVentas.add(new Producto("Pokemon Sword", 60));
+        productosTopVentas.add(new Producto("Pokemon Shield", 60));
+        productosTopVentas.add(new Producto("Tarjeta de Google", 5));
+        productosTopVentas.add(new Producto("Overwatch", 20));
+        productosTopVentas.add(new Producto("The Witcher", 30));
+        listTopVentas.setLayoutManager(new GridLayoutManager(getContext(), 3));
         RecyclerAdapter b=new RecyclerAdapter(productosTopVentas, getContext());
         listTopVentas.setAdapter(b);
 
         listTopPrecios = view.findViewById(R.id.TopPrecios);
-
-        productosTopPrecio.addAll(productos);
-
+        productosTopPrecio.add(new Producto("Nintendo Switch", 300));
+        productosTopPrecio.add(new Producto("Pokemon Sword", 60));
+        productosTopPrecio.add(new Producto("Pokemon Shield", 60));
+        productosTopPrecio.add(new Producto("Tarjeta de Google", 5));
+        productosTopPrecio.add(new Producto("Overwatch", 20));
+        productosTopPrecio.add(new Producto("The Witcher", 30));
         listTopPrecios.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         RecyclerAdapter c=new RecyclerAdapter(productosTopPrecio, getContext());
         listTopPrecios.setAdapter(c);
@@ -81,19 +68,15 @@ public class FragInicio extends Fragment{
         return view;
     }
 
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
     }
-
-
     public void Filter(String newText) {
 
         if (newText != "") {
@@ -113,5 +96,6 @@ public class FragInicio extends Fragment{
         RecyclerAdapter c=new RecyclerAdapter(productosTopVentas, getContext());
         listTopVentas.setAdapter(c);
     }
+
 }
 
