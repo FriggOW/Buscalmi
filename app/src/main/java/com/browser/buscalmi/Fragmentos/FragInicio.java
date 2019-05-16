@@ -51,26 +51,14 @@ public class FragInicio extends Fragment{
         productos.add(new Producto("The Witcher", 30));
 
         listTopVentas = view.findViewById(R.id.TopVentas);
-
-        listTopVentas.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        productosTopVentas.add(new Producto("Nintendo Switch", 300));
-        productosTopVentas.add(new Producto("Pokemon Sword", 60));
-        productosTopVentas.add(new Producto("Pokemon Shield", 60));
-        productosTopVentas.add(new Producto("Tarjeta de Google", 5));
-        productosTopVentas.add(new Producto("Overwatch", 20));
-        productosTopVentas.add(new Producto("The Witcher", 30));
         listTopVentas.setLayoutManager(new GridLayoutManager(getContext(), 3));
+        productosTopVentas.addAll(productos);
         RecyclerAdapter b=new RecyclerAdapter(productosTopVentas, getContext());
         listTopVentas.setAdapter(b);
 
         listTopPrecios = view.findViewById(R.id.TopPrecios);
-        productosTopPrecio.add(new Producto("Nintendo Switch", 300));
-        productosTopPrecio.add(new Producto("Pokemon Sword", 60));
-        productosTopPrecio.add(new Producto("Pokemon Shield", 60));
-        productosTopPrecio.add(new Producto("Tarjeta de Google", 5));
-        productosTopPrecio.add(new Producto("Overwatch", 20));
-        productosTopPrecio.add(new Producto("The Witcher", 30));
         listTopPrecios.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        productosTopPrecio.addAll(productos);
         RecyclerAdapter c=new RecyclerAdapter(productosTopPrecio, getContext());
         listTopPrecios.setAdapter(c);
 
