@@ -17,3 +17,14 @@ query AllUsuario{
     password
   }
 }
+
+query AllProductos {
+  productos {
+    idproducto
+    nombre
+    precio
+    tienda
+    url
+    descripcion
+  }
+}
