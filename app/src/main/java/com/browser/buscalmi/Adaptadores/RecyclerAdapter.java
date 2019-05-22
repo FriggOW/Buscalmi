@@ -2,6 +2,8 @@ package com.browser.buscalmi.Adaptadores;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 
 import com.browser.buscalmi.Producto;
 import com.browser.buscalmi.R;
@@ -40,20 +43,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.DamVie
         final Producto item = items.get(i);
 
         damViewHolder.text.setText(item.getNombre());
-        damViewHolder.precio.setText(item.getPrecio()+"€");
-        //Glide.with(damViewHolder.image.getContext()).load(item.getFoto()).into(damViewHolder.image);
+        damViewHolder.precio.setText(item.getPrecio());
+        Glide.with(damViewHolder.image.getContext()).load(item.getUrlImagen()).into(damViewHolder.image);
 
-       /* damViewHolder.image.setOnClickListener(new View.OnClickListener() {
+        damViewHolder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                FragItemShop frag = new FragItemShop();
-                frag.setArgs(item);
-                ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
-                        .setCustomAnimations(R.anim.entrada, R.anim.salida).replace(R.id.container_principal,frag).addToBackStack(null).commit();
-
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(item.getUrlTienda()));
+                context.startActivity(intent);
             }
-        });*/
+        });
+
+        if (item.getTienda().equals("Amazon")){
+            Glide.with(damViewHolder.tienda.getContext()).load(R.drawable.ic_amazon).into(damViewHolder.tienda);
+        }
 
     }
 
@@ -64,17 +67,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.DamVie
 
     class DamViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
+        public ImageView tienda;
         public TextView text;
         public  TextView precio;
 
         DamViewHolder(View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.imgFoto);
-            text = itemView.findViewById(R.id.imgTexto);
-            precio = itemView.findViewById(R.id.imgPrecio);
+            text = itemView.findViewById(R.id.txtTexto);
+            precio = itemView.findViewById(R.id.txtPrecio);
+            tienda = itemView.findViewById(R.id.imgTienda);
 
         }
-
-
     }
 }

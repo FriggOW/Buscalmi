@@ -1,9 +1,11 @@
 package com.browser.buscalmi.Fragmentos;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,16 +14,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.apollographql.apollo.ApolloCall;
+import com.apollographql.apollo.api.Response;
+import com.apollographql.apollo.exception.ApolloException;
 import com.browser.buscalmi.Adaptadores.RecyclerAdapter;
+import com.browser.buscalmi.AllProductos;
+import com.browser.buscalmi.Apollo.MiApolloClient;
 import com.browser.buscalmi.Producto;
 import com.browser.buscalmi.R;
 
 import java.util.ArrayList;
 
+import javax.annotation.Nonnull;
 
-public class FragInicio extends Fragment{
 
-    private  RecyclerView listTopVentas;
+public class FragInicio extends Fragment {
+
+    private RecyclerView listTopVentas;
     private RecyclerView listTopPrecios;
 
     private static ArrayList<Producto> productos = new ArrayList<Producto>();
@@ -42,41 +51,61 @@ public class FragInicio extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_inicio, container, false);
-
+        /* TEST PRODUCTS
         productos.add(new Producto("Nintendo Switch", 300));
         productos.add(new Producto("Pokemon Sword", 60));
         productos.add(new Producto("Pokemon Shield", 60));
         productos.add(new Producto("Tarjeta de Google", 5));
         productos.add(new Producto("Overwatch", 20));
         productos.add(new Producto("The Witcher", 30));
+        */
+
+        initializeProducts();
+
+        //Esperando ala respuesta de la conexion de la BBDD
+        SystemClock.sleep(1500);
 
         listTopVentas = view.findViewById(R.id.TopVentas);
-
-        listTopVentas.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        productosTopVentas.add(new Producto("Nintendo Switch", 300));
-        productosTopVentas.add(new Producto("Pokemon Sword", 60));
-        productosTopVentas.add(new Producto("Pokemon Shield", 60));
-        productosTopVentas.add(new Producto("Tarjeta de Google", 5));
-        productosTopVentas.add(new Producto("Overwatch", 20));
-        productosTopVentas.add(new Producto("The Witcher", 30));
         listTopVentas.setLayoutManager(new GridLayoutManager(getContext(), 3));
-        RecyclerAdapter b=new RecyclerAdapter(productosTopVentas, getContext());
+        productosTopVentas.addAll(productos);
+        RecyclerAdapter b = new RecyclerAdapter(productosTopVentas, getContext());
         listTopVentas.setAdapter(b);
 
         listTopPrecios = view.findViewById(R.id.TopPrecios);
-        productosTopPrecio.add(new Producto("Nintendo Switch", 300));
-        productosTopPrecio.add(new Producto("Pokemon Sword", 60));
-        productosTopPrecio.add(new Producto("Pokemon Shield", 60));
-        productosTopPrecio.add(new Producto("Tarjeta de Google", 5));
-        productosTopPrecio.add(new Producto("Overwatch", 20));
-        productosTopPrecio.add(new Producto("The Witcher", 30));
         listTopPrecios.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        RecyclerAdapter c=new RecyclerAdapter(productosTopPrecio, getContext());
+        productosTopPrecio.addAll(productos);
+        RecyclerAdapter c = new RecyclerAdapter(productosTopPrecio, getContext());
         listTopPrecios.setAdapter(c);
 
         return view;
     }
 
+    private void initializeProducts() {
+
+        MiApolloClient.getApolloClient().query(AllProductos.builder()
+                .build())
+                .enqueue(new ApolloCall.Callback<AllProductos.Data>() {
+
+                    @Override
+                    public void onResponse(@Nonnull Response<AllProductos.Data> response) {
+                        for (int i = 0; i < response.data().productos().size(); i++){
+                            productos.add(new Producto(
+                                    response.data().productos().get(i).idproducto(),
+                                    response.data().productos().get(i).nombre(),
+                                    response.data().productos().get(i).precio(),
+                                    response.data().productos().get(i).url(),
+                                    response.data().productos().get(i).imagen(),
+                                    response.data().productos().get(i).tienda()
+                            ));
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@Nonnull ApolloException e) {
+
+                    }
+                });
+    }
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -86,6 +115,8 @@ public class FragInicio extends Fragment{
     public void onDetach() {
         super.onDetach();
     }
+
+
     public void Filter(String newText) {
 
         if (newText != "") {
