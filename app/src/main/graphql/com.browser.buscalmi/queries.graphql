@@ -23,8 +23,8 @@ query AllProductos {
     idproducto
     nombre
     precio
-    tienda
     url
-    descripcion
+    imagen
+    tienda
   }
 }

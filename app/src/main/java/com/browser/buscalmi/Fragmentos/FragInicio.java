@@ -1,6 +1,8 @@
 package com.browser.buscalmi.Fragmentos;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
@@ -61,7 +63,7 @@ public class FragInicio extends Fragment {
         initializeProducts();
 
         //Esperando ala respuesta de la conexion de la BBDD
-        SystemClock.sleep(1000);
+        SystemClock.sleep(1500);
 
         listTopVentas = view.findViewById(R.id.TopVentas);
         listTopVentas.setLayoutManager(new GridLayoutManager(getContext(), 3));
@@ -86,13 +88,15 @@ public class FragInicio extends Fragment {
 
                     @Override
                     public void onResponse(@Nonnull Response<AllProductos.Data> response) {
-
                         for (int i = 0; i < response.data().productos().size(); i++){
-
                             productos.add(new Producto(
+                                    response.data().productos().get(i).idproducto(),
                                     response.data().productos().get(i).nombre(),
-                                    Integer.valueOf(""+response.data().productos().get(i).precio()))
-                            );
+                                    response.data().productos().get(i).precio(),
+                                    response.data().productos().get(i).url(),
+                                    response.data().productos().get(i).imagen(),
+                                    response.data().productos().get(i).tienda()
+                            ));
                         }
                     }
 
@@ -101,8 +105,6 @@ public class FragInicio extends Fragment {
 
                     }
                 });
-
-
     }
     @Override
     public void onAttach(Context context) {
@@ -113,6 +115,8 @@ public class FragInicio extends Fragment {
     public void onDetach() {
         super.onDetach();
     }
+
+
     public void Filter(String newText) {
 
         if (newText != "") {
