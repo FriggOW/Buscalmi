@@ -63,19 +63,13 @@ public class FragInicio extends Fragment {
         initializeProducts();
 
         //Esperando ala respuesta de la conexion de la BBDD
-        SystemClock.sleep(1500);
+        SystemClock.sleep(5000);
 
         listTopVentas = view.findViewById(R.id.TopVentas);
         listTopVentas.setLayoutManager(new GridLayoutManager(getContext(), 3));
         productosTopVentas.addAll(productos);
         RecyclerAdapter b = new RecyclerAdapter(productosTopVentas, getContext());
         listTopVentas.setAdapter(b);
-
-        listTopPrecios = view.findViewById(R.id.TopPrecios);
-        listTopPrecios.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        productosTopPrecio.addAll(productos);
-        RecyclerAdapter c = new RecyclerAdapter(productosTopPrecio, getContext());
-        listTopPrecios.setAdapter(c);
 
         return view;
     }
@@ -98,6 +92,11 @@ public class FragInicio extends Fragment {
                                     response.data().productos().get(i).tienda()
                             ));
                         }
+
+                        if (response.data().productos().size() == 0){
+                            initializeProducts();
+                        }
+
                     }
 
                     @Override
