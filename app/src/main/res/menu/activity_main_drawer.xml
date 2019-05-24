@@ -48,13 +48,4 @@
 
     </group>
 
-    <item android:title="Perfil">
-        <menu>
-            <item
-                android:id="@+id/nav_profile"
-                android:icon="@drawable/icon_profile"
-                android:title="Mi Perfil" />
-        </menu>
-    </item>
-
 </menu>
