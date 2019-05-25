@@ -18,7 +18,11 @@ import com.browser.buscalmi.Fragmentos.FragSoon;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private FragInicio fIni =  new FragInicio();
+    private FragInicio fIni = new FragInicio();
+    private FragAmazon fAma = new FragAmazon();
+    private FragEbay fEba = new FragEbay();
+
+    private int currentFragment = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,14 +62,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         if (id == R.id.nav_home) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, new FragInicio()).addToBackStack(null).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, fIni).addToBackStack(null).commit();
+            currentFragment = 1;
 
         }else if (id == R.id.nav_amazon) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, new FragAmazon()).addToBackStack(null).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, fAma).addToBackStack(null).commit();
+            currentFragment = 2;
 
         } else if (id == R.id.nav_ebay) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, new FragEbay()).addToBackStack(null).commit();
-
+            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, fEba).addToBackStack(null).commit();
+            currentFragment = 3;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -88,7 +94,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                fIni.Filter(newText);
+
+                if(currentFragment == 1){
+                    fIni.Filter(newText);
+
+                }else if (currentFragment == 2) {
+                    fAma.Filter(newText);
+
+                }else if (currentFragment == 3){
+                    fEba.Filter(newText);
+
+                }
                 return false;
             }
         });
