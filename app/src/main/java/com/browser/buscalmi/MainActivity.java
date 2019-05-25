@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.browser.buscalmi.Fragmentos.FragInicio;
+import com.browser.buscalmi.Fragmentos.FragSoon;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -53,17 +54,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_beauty) {
+
+        if (id == R.id.nav_home) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, fIni).addToBackStack(null).commit();
+
+        }else if (id == R.id.nav_beauty) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, new FragSoon()).addToBackStack(null).commit();
 
         } else if (id == R.id.nav_comtuters) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, new FragSoon()).addToBackStack(null).commit();
 
         } else if (id == R.id.nav_electronics) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, new FragSoon()).addToBackStack(null).commit();
 
         } else if (id == R.id.nav_fashion) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, new FragSoon()).addToBackStack(null).commit();
 
         } else if (id == R.id.nav_games) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, new FragSoon()).addToBackStack(null).commit();
 
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

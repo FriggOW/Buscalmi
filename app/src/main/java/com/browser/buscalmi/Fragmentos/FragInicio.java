@@ -51,31 +51,29 @@ public class FragInicio extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_inicio, container, false);
-        /* TEST PRODUCTS
-        productos.add(new Producto("Nintendo Switch", 300));
-        productos.add(new Producto("Pokemon Sword", 60));
-        productos.add(new Producto("Pokemon Shield", 60));
-        productos.add(new Producto("Tarjeta de Google", 5));
-        productos.add(new Producto("Overwatch", 20));
-        productos.add(new Producto("The Witcher", 30));
-        */
+        //* TEST PRODUCTS
 
-        initializeProducts();
+        productos.clear();
+        productosTopVentas.clear();
+
+        productos.add(new Producto(1,"Nintendo Switch", "300","300","300","300"));
+        productos.add(new Producto(2,"Pokemon Sword", "60","300","300","300"));
+        productos.add(new Producto(3,"Pokemon Shield", "60","300","300","300"));
+        productos.add(new Producto(4,"Tarjeta de Google", "5","300","300","300"));
+        productos.add(new Producto(5,"Overwatch", "20","300","300","300"));
+        productos.add(new Producto(6,"The Witcher", "30","300","300","300"));
+
+
+        //initializeProducts();
 
         //Esperando ala respuesta de la conexion de la BBDD
-        SystemClock.sleep(1500);
+        //SystemClock.sleep(1500);
 
         listTopVentas = view.findViewById(R.id.TopVentas);
         listTopVentas.setLayoutManager(new GridLayoutManager(getContext(), 3));
         productosTopVentas.addAll(productos);
         RecyclerAdapter b = new RecyclerAdapter(productosTopVentas, getContext());
         listTopVentas.setAdapter(b);
-
-        listTopPrecios = view.findViewById(R.id.TopPrecios);
-        listTopPrecios.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        productosTopPrecio.addAll(productos);
-        RecyclerAdapter c = new RecyclerAdapter(productosTopPrecio, getContext());
-        listTopPrecios.setAdapter(c);
 
         return view;
     }
