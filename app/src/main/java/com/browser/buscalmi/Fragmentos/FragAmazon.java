@@ -79,14 +79,18 @@ public class FragAmazon extends Fragment {
                     @Override
                     public void onResponse(@Nonnull Response<SmartphonesAmazon.Data> response) {
                         for (int i = 0; i < response.data().browalmi_modelo().size(); i++){
-                            productos.add(new Producto(
-                                    response.data().browalmi_modelo().get(i).modelo_smartphone().modelo_id(),
-                                    response.data().browalmi_modelo().get(i).name(),
-                                    response.data().browalmi_modelo().get(i).modelo_phoneinstance().get(0).precio()+"",
-                                    response.data().browalmi_modelo().get(i).modelo_phoneinstance().get(0).url(),
-                                    response.data().browalmi_modelo().get(i).modelo_smartphone().imagen(),
-                                    response.data().browalmi_modelo().get(i).modelo_phoneinstance().get(0).tienda()
-                            ));
+
+                            for (int j = 0;j < response.data().browalmi_modelo().get(i).modelo_phoneinstance().size(); j++){
+                                productos.add(new Producto(
+                                        response.data().browalmi_modelo().get(i).modelo_smartphone().modelo_id(),
+                                        response.data().browalmi_modelo().get(i).name(),
+                                        response.data().browalmi_modelo().get(i).modelo_phoneinstance().get(j).precio()+ "",
+                                        response.data().browalmi_modelo().get(i).modelo_phoneinstance().get(j).url(),
+                                        response.data().browalmi_modelo().get(i).modelo_smartphone().imagen(),
+                                        response.data().browalmi_modelo().get(i).modelo_phoneinstance().get(j).tienda()
+                                ));
+                            }
+
                         }
 
                         getActivity().runOnUiThread(new Runnable() {

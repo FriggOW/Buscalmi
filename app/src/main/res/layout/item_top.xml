@@ -1,5 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="128dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="180dp"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
@@ -54,7 +55,9 @@
                     android:paddingRight="10dp"
                     android:textStyle="bold|italic"
                     android:textSize="13sp"
-                    android:text="Precio"/>
+                    android:textAlignment="textEnd"
+                    android:text="Precio"
+                    tools:ignore="RtlCompat" />
 
             </LinearLayout>
         </LinearLayout>

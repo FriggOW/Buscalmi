@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.browser.buscalmi.Fragmentos.FragAmazon;
+import com.browser.buscalmi.Fragmentos.FragEbay;
 import com.browser.buscalmi.Fragmentos.FragInicio;
 import com.browser.buscalmi.Fragmentos.FragSoon;
 
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, new FragAmazon()).addToBackStack(null).commit();
 
         } else if (id == R.id.nav_ebay) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, new FragInicio()).addToBackStack(null).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, new FragEbay()).addToBackStack(null).commit();
 
         }
 

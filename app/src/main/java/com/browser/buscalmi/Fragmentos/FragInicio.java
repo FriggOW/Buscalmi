@@ -86,6 +86,7 @@ public class FragInicio extends Fragment {
                         for (int i = 0; i < response.data().browalmi_modelo().size(); i++){
 
                             for (int j = 0;j < response.data().browalmi_modelo().get(i).modelo_phoneinstance().size(); j++){
+
                                 productos.add(new Producto(
                                         response.data().browalmi_modelo().get(i).modelo_smartphone().modelo_id(),
                                         response.data().browalmi_modelo().get(i).name(),

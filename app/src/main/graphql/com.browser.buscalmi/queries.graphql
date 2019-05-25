@@ -19,7 +19,7 @@ query AllSmartphones {
 }
 
 query SmartphonesAmazon {
-  browalmi_modelo {
+  browalmi_modelo(where: {modelo_phoneinstance: {tienda: {_eq: "Amazon"}}}) {
     name
     modelo_smartphone {
       imagen
@@ -38,7 +38,7 @@ query SmartphonesAmazon {
 }
 
 query SmartphonesEbay {
-  browalmi_modelo {
+  browalmi_modelo(where: {modelo_phoneinstance: {tienda: {_eq: "Ebay"}}}) {
     name
     modelo_smartphone {
       imagen
