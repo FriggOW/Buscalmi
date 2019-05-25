@@ -14,45 +14,14 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_beauty"
-            android:icon="@drawable/icon_beauty"
-            android:title="Belleza" />
+            android:id="@+id/nav_amazon"
+            android:icon="@drawable/ic_amazon"
+            android:title="Amazon" />
 
         <item
-            android:id="@+id/nav_comtuters"
-            android:icon="@drawable/icon_computer"
-            android:title="Informática" />
-
-        <item
-            android:id="@+id/nav_electronics"
-            android:icon="@drawable/icon_electronic"
-            android:title="Electrónica" />
-
-        <item
-            android:id="@+id/nav_fashion"
-            android:icon="@drawable/icon_fashion"
-            android:title="Moda" />
-
-        <item
-            android:id="@+id/nav_games"
-            android:icon="@drawable/icon_game"
-            android:title="Juegos" />
-
-
-        <item
-            android:id="@+id/nav_jewelry"
-            android:icon="@drawable/icon_jewelry"
-            android:title="Joyería" />
-
-        <item
-            android:id="@+id/nav_music"
-            android:icon="@drawable/icon_music"
-            android:title="Musica" />
-
-        <item
-            android:id="@+id/nav_sports"
-            android:icon="@drawable/icon_sports"
-            android:title="Deportes" />
+            android:id="@+id/nav_ebay"
+            android:icon="@drawable/ic_ebay"
+            android:title="Ebay" />
 
     </group>
 

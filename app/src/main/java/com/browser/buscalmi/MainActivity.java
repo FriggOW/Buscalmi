@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.browser.buscalmi.Fragmentos.FragAmazon;
 import com.browser.buscalmi.Fragmentos.FragInicio;
 import com.browser.buscalmi.Fragmentos.FragSoon;
 
@@ -56,25 +57,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         if (id == R.id.nav_home) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, fIni).addToBackStack(null).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, new FragInicio()).addToBackStack(null).commit();
 
-        }else if (id == R.id.nav_beauty) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, new FragSoon()).addToBackStack(null).commit();
+        }else if (id == R.id.nav_amazon) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, new FragAmazon()).addToBackStack(null).commit();
 
-        } else if (id == R.id.nav_comtuters) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, new FragSoon()).addToBackStack(null).commit();
-
-        } else if (id == R.id.nav_electronics) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, new FragSoon()).addToBackStack(null).commit();
-
-        } else if (id == R.id.nav_fashion) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, new FragSoon()).addToBackStack(null).commit();
-
-        } else if (id == R.id.nav_games) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, new FragSoon()).addToBackStack(null).commit();
+        } else if (id == R.id.nav_ebay) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.Cprincipal, new FragInicio()).addToBackStack(null).commit();
 
         }
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

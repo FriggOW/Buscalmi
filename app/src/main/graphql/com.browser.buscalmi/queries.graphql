@@ -13,12 +13,13 @@ query AllSmartphones {
       stock
       url
       tienda
+      fecha_subido
     }
   }
 }
 
 query SmartphonesAmazon {
-  browalmi_modelo(where: {modelo_phoneinstance: {_not: {}}}) {
+  browalmi_modelo {
     name
     modelo_smartphone {
       imagen
@@ -37,7 +38,7 @@ query SmartphonesAmazon {
 }
 
 query SmartphonesEbay {
-  browalmi_modelo(where: {modelo_phoneinstance: {_not: {}}}) {
+  browalmi_modelo {
     name
     modelo_smartphone {
       imagen

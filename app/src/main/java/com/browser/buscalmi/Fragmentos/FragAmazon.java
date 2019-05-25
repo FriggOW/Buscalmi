@@ -1,15 +1,12 @@
 package com.browser.buscalmi.Fragmentos;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +18,6 @@ import com.apollographql.apollo.exception.ApolloException;
 import com.browser.buscalmi.Adaptadores.RecyclerAdapter;
 import com.browser.buscalmi.AllSmartphones;
 import com.browser.buscalmi.Apollo.MiApolloClient;
-import com.browser.buscalmi.MainActivity;
 import com.browser.buscalmi.Producto;
 import com.browser.buscalmi.R;
 import com.browser.buscalmi.SmartphonesAmazon;
@@ -30,8 +26,7 @@ import java.util.ArrayList;
 
 import javax.annotation.Nonnull;
 
-
-public class FragInicio extends Fragment {
+public class FragAmazon extends Fragment {
 
     private RecyclerView listTopVentas;
 
@@ -39,7 +34,7 @@ public class FragInicio extends Fragment {
 
     private static ArrayList<Producto> productosTopVentas = new ArrayList<Producto>();
 
-    public FragInicio() {
+    public FragAmazon() {
         // Required empty public constructor
     }
 
@@ -62,6 +57,7 @@ public class FragInicio extends Fragment {
         productos.add(new Producto(5,"Overwatch", "20","300","300","300"));
         productos.add(new Producto(6,"The Witcher", "30","300","300","300"));
 */
+
         Toast toast1 = Toast.makeText(getContext(), "Cargando...", Toast.LENGTH_SHORT);
         toast1.show();
 
@@ -76,26 +72,21 @@ public class FragInicio extends Fragment {
     private void initializeProducts() {
         productos.clear();
 
-        MiApolloClient.getApolloClient().query(AllSmartphones.builder()
+        MiApolloClient.getApolloClient().query(SmartphonesAmazon.builder()
                 .build())
-                .enqueue(new ApolloCall.Callback<AllSmartphones.Data>() {
+                .enqueue(new ApolloCall.Callback<SmartphonesAmazon.Data>() {
 
                     @Override
-                    public void onResponse(@Nonnull Response<AllSmartphones.Data> response) {
-
+                    public void onResponse(@Nonnull Response<SmartphonesAmazon.Data> response) {
                         for (int i = 0; i < response.data().browalmi_modelo().size(); i++){
-
-                            for (int j = 0;j < response.data().browalmi_modelo().get(i).modelo_phoneinstance().size(); j++){
-                                productos.add(new Producto(
-                                        response.data().browalmi_modelo().get(i).modelo_smartphone().modelo_id(),
-                                        response.data().browalmi_modelo().get(i).name(),
-                                        response.data().browalmi_modelo().get(i).modelo_phoneinstance().get(j).precio()+ "",
-                                        response.data().browalmi_modelo().get(i).modelo_phoneinstance().get(j).url(),
-                                        response.data().browalmi_modelo().get(i).modelo_smartphone().imagen(),
-                                        response.data().browalmi_modelo().get(i).modelo_phoneinstance().get(j).tienda()
-                                ));
-                            }
-
+                            productos.add(new Producto(
+                                    response.data().browalmi_modelo().get(i).modelo_smartphone().modelo_id(),
+                                    response.data().browalmi_modelo().get(i).name(),
+                                    response.data().browalmi_modelo().get(i).modelo_phoneinstance().get(0).precio()+"",
+                                    response.data().browalmi_modelo().get(i).modelo_phoneinstance().get(0).url(),
+                                    response.data().browalmi_modelo().get(i).modelo_smartphone().imagen(),
+                                    response.data().browalmi_modelo().get(i).modelo_phoneinstance().get(0).tienda()
+                            ));
                         }
 
                         getActivity().runOnUiThread(new Runnable() {
@@ -130,6 +121,7 @@ public class FragInicio extends Fragment {
     public void Filter(String newText) {
 
         if (newText != "") {
+
             productosTopVentas.clear();
 
             for (int i = 0; i < productos.size();i++){

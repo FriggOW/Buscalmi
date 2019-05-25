@@ -56,6 +56,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.DamVie
 
         if (item.getTienda().equals("Amazon")){
             Glide.with(damViewHolder.tienda.getContext()).load(R.drawable.ic_amazon).into(damViewHolder.tienda);
+        }else if (item.getTienda().equals("Ebay")){
+            Glide.with(damViewHolder.tienda.getContext()).load(R.drawable.ic_ebay).into(damViewHolder.tienda);
         }
 
     }
