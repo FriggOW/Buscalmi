@@ -41,34 +41,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="5dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:paddingLeft="15dp"
-                    android:paddingBottom="5dp"
-                    android:textStyle="bold|italic"
-                    android:textSize="23sp"
-                    android:text="Top Precios"/>
-
-                <android.support.v7.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/TopPrecios"
-                    android:scrollbars="horizontal"
-                    android:scrollbarStyle="outsideInset">
-
-
-                </android.support.v7.widget.RecyclerView>
-
-            </LinearLayout>
-
         </LinearLayout>
 
     </ScrollView>
