@@ -43,7 +43,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.DamVie
         final Producto item = items.get(i);
 
         damViewHolder.text.setText(item.getNombre());
-        damViewHolder.precio.setText(item.getPrecio());
+        damViewHolder.precio.setText(item.getPrecio() + "€");
         Glide.with(damViewHolder.image.getContext()).load(item.getUrlImagen()).into(damViewHolder.image);
 
         damViewHolder.image.setOnClickListener(new View.OnClickListener() {

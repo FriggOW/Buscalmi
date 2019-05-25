@@ -18,7 +18,7 @@ import com.apollographql.apollo.ApolloCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 import com.browser.buscalmi.Adaptadores.RecyclerAdapter;
-import com.browser.buscalmi.AllProductos;
+import com.browser.buscalmi.AllSmartphones;
 import com.browser.buscalmi.Apollo.MiApolloClient;
 import com.browser.buscalmi.Producto;
 import com.browser.buscalmi.R;
@@ -63,7 +63,7 @@ public class FragInicio extends Fragment {
         initializeProducts();
 
         //Esperando ala respuesta de la conexion de la BBDD
-        SystemClock.sleep(1500);
+        SystemClock.sleep(5000);
 
         listTopVentas = view.findViewById(R.id.TopVentas);
         listTopVentas.setLayoutManager(new GridLayoutManager(getContext(), 3));
@@ -71,33 +71,32 @@ public class FragInicio extends Fragment {
         RecyclerAdapter b = new RecyclerAdapter(productosTopVentas, getContext());
         listTopVentas.setAdapter(b);
 
-        listTopPrecios = view.findViewById(R.id.TopPrecios);
-        listTopPrecios.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        productosTopPrecio.addAll(productos);
-        RecyclerAdapter c = new RecyclerAdapter(productosTopPrecio, getContext());
-        listTopPrecios.setAdapter(c);
-
         return view;
     }
 
     private void initializeProducts() {
 
-        MiApolloClient.getApolloClient().query(AllProductos.builder()
+        MiApolloClient.getApolloClient().query(AllSmartphones.builder()
                 .build())
-                .enqueue(new ApolloCall.Callback<AllProductos.Data>() {
+                .enqueue(new ApolloCall.Callback<AllSmartphones.Data>() {
 
                     @Override
-                    public void onResponse(@Nonnull Response<AllProductos.Data> response) {
-                        for (int i = 0; i < response.data().productos().size(); i++){
+                    public void onResponse(@Nonnull Response<AllSmartphones.Data> response) {
+                        for (int i = 0; i < response.data().browalmi_modelo().size(); i++){
                             productos.add(new Producto(
-                                    response.data().productos().get(i).idproducto(),
-                                    response.data().productos().get(i).nombre(),
-                                    response.data().productos().get(i).precio(),
-                                    response.data().productos().get(i).url(),
-                                    response.data().productos().get(i).imagen(),
-                                    response.data().productos().get(i).tienda()
+                                    response.data().browalmi_modelo().get(i).modelo_smartphone().modelo_id(),
+                                    response.data().browalmi_modelo().get(i).name(),
+                                    "" + response.data().browalmi_modelo().get(i).modelo_phoneinstance().get(0).precio(),
+                                    response.data().browalmi_modelo().get(i).modelo_phoneinstance().get(0).url(),
+                                    response.data().browalmi_modelo().get(i).modelo_smartphone().imagen(),
+                                    "Amazon"
                             ));
                         }
+
+                        if (response.data().browalmi_modelo().size() == 0){
+                            initializeProducts();
+                        }
+
                     }
 
                     @Override
