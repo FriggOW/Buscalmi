@@ -1,15 +1,10 @@
 package com.browser.buscalmi.Fragmentos;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,10 +16,8 @@ import com.apollographql.apollo.exception.ApolloException;
 import com.browser.buscalmi.Adaptadores.RecyclerAdapter;
 import com.browser.buscalmi.AllSmartphones;
 import com.browser.buscalmi.Apollo.MiApolloClient;
-import com.browser.buscalmi.MainActivity;
 import com.browser.buscalmi.Producto;
 import com.browser.buscalmi.R;
-import com.browser.buscalmi.SmartphonesAmazon;
 
 import java.util.ArrayList;
 
@@ -90,7 +83,7 @@ public class FragInicio extends Fragment {
                                 productos.add(new Producto(
                                         response.data().browalmi_modelo().get(i).modelo_smartphone().modelo_id(),
                                         response.data().browalmi_modelo().get(i).name(),
-                                        response.data().browalmi_modelo().get(i).modelo_phoneinstance().get(j).precio()+ "",
+                                        response.data().browalmi_modelo().get(i).modelo_phoneinstance().get(j).precio(),
                                         response.data().browalmi_modelo().get(i).modelo_phoneinstance().get(j).url(),
                                         response.data().browalmi_modelo().get(i).modelo_smartphone().imagen(),
                                         response.data().browalmi_modelo().get(i).modelo_phoneinstance().get(j).tienda()

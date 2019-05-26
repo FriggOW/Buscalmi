@@ -14,7 +14,6 @@ import android.view.MenuItem;
 import com.browser.buscalmi.Fragmentos.FragAmazon;
 import com.browser.buscalmi.Fragmentos.FragEbay;
 import com.browser.buscalmi.Fragmentos.FragInicio;
-import com.browser.buscalmi.Fragmentos.FragSoon;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 

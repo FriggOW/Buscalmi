@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import com.browser.buscalmi.Producto;
 import com.browser.buscalmi.R;
 import com.bumptech.glide.Glide;

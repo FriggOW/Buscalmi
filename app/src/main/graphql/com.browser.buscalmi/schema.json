@@ -13847,16 +13847,6 @@
             "defaultValue": null
           },
           {
-            "name": "precio",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "stock",
             "description": null,
             "type": {
@@ -14080,16 +14070,6 @@
             "defaultValue": null
           },
           {
-            "name": "precio",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "stock",
             "description": null,
             "type": {
@@ -14122,16 +14102,6 @@
           },
           {
             "name": "phone_obj_id",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "precio",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -14182,16 +14152,6 @@
             "defaultValue": null
           },
           {
-            "name": "precio",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "stock",
             "description": null,
             "type": {
@@ -14224,16 +14184,6 @@
           },
           {
             "name": "phone_obj_id",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "precio",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -14284,16 +14234,6 @@
             "defaultValue": null
           },
           {
-            "name": "precio",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "stock",
             "description": null,
             "type": {
@@ -14335,16 +14275,6 @@
             "defaultValue": null
           },
           {
-            "name": "precio",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "stock",
             "description": null,
             "type": {
@@ -14377,16 +14307,6 @@
           },
           {
             "name": "phone_obj_id",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "precio",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -14655,21 +14575,11 @@
             "defaultValue": null
           },
           {
-            "name": "phoneinstance_modelo",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "browalmi_phone_instance_bool_exp",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "precio",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "integer_comparison_exp",
+              "name": "text_comparison_exp",
               "ofType": null
             },
             "defaultValue": null
@@ -15334,16 +15244,6 @@
             "defaultValue": null
           },
           {
-            "name": "phoneinstance_modelo",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "browalmi_phone_instance_order_by",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "precio",
             "description": null,
             "type": {
@@ -15444,24 +15344,12 @@
             "deprecationReason": null
           },
           {
-            "name": "phoneinstance_modelo",
-            "description": "An object relationship",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "browalmi_phone_instance",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "precio",
             "description": null,
             "args": [],
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
@@ -15778,18 +15666,6 @@
             "deprecationReason": null
           },
           {
-            "name": "precio",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "stock",
             "description": null,
             "args": [],
@@ -15854,7 +15730,7 @@
             "args": [],
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
@@ -15961,7 +15837,7 @@
             "args": [],
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
@@ -16051,18 +15927,6 @@
             "deprecationReason": null
           },
           {
-            "name": "precio",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "stock",
             "description": null,
             "args": [],
@@ -16099,18 +15963,6 @@
           },
           {
             "name": "phone_obj_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "precio",
             "description": null,
             "args": [],
             "type": {
@@ -16169,18 +16021,6 @@
             "deprecationReason": null
           },
           {
-            "name": "precio",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "stock",
             "description": null,
             "args": [],
@@ -16217,18 +16057,6 @@
           },
           {
             "name": "phone_obj_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "precio",
             "description": null,
             "args": [],
             "type": {
@@ -16287,18 +16115,6 @@
             "deprecationReason": null
           },
           {
-            "name": "precio",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "stock",
             "description": null,
             "args": [],
@@ -16346,18 +16162,6 @@
             "deprecationReason": null
           },
           {
-            "name": "precio",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "stock",
             "description": null,
             "args": [],
@@ -16394,18 +16198,6 @@
           },
           {
             "name": "phone_obj_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "precio",
             "description": null,
             "args": [],
             "type": {
@@ -26001,21 +25793,11 @@
             "defaultValue": null
           },
           {
-            "name": "phoneinstance_modelo",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "browalmi_phone_instance_obj_rel_insert_input",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "precio",
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -26056,41 +25838,6 @@
             "type": {
               "kind": "SCALAR",
               "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "browalmi_phone_instance_obj_rel_insert_input",
-        "description": "input type for inserting object relation for remote table \"browalmi_phone_instance\"",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "data",
-            "description": null,
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "INPUT_OBJECT",
-                "name": "browalmi_phone_instance_insert_input",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "on_conflict",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "browalmi_phone_instance_on_conflict",
               "ofType": null
             },
             "defaultValue": null
@@ -28152,16 +27899,6 @@
             "defaultValue": null
           },
           {
-            "name": "precio",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "stock",
             "description": null,
             "type": {
@@ -28217,7 +27954,7 @@
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -39700,6 +39437,41 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "browalmi_modelo_on_conflict",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "browalmi_phone_instance_obj_rel_insert_input",
+        "description": "input type for inserting object relation for remote table \"browalmi_phone_instance\"",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "data",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "INPUT_OBJECT",
+                "name": "browalmi_phone_instance_insert_input",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "on_conflict",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "browalmi_phone_instance_on_conflict",
               "ofType": null
             },
             "defaultValue": null
